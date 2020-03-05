@@ -4,14 +4,21 @@
   "description": "Job application for Lab08",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.html"
+    "format": "prettier \"src/**/*.{js,html}\" --write",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/turbalan/threads.git"
   },
   "keywords": [],
   "author": "Pavel Kuts",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/turbalan/threads/issues"
+  },
+  "homepage": "https://github.com/turbalan/threads#readme",
   "devDependencies": {
-    "parcel-bundler": "^1.12.4",
-    "sass": "^1.26.2"
+    "prettier": "^1.19.1"
   }
 }
