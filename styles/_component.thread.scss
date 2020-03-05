@@ -1,0 +1,63 @@
+.thread {
+  padding: 25px 0;
+  position: relative;
+
+  &--collapsed {
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: calc(100% - (25px * 2));
+      position: absolute;
+      background-color: #fff;
+      @include messageBoxShadow;
+      @include messageBorderRadius;
+    }
+    &::before {
+      left: 10px;
+      top: 35px;
+      z-index: 50;
+    }
+    &::after {
+      top: 45px;
+      left: 20px;
+      z-index: 1;
+    }
+    &[data-count="2"] {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .message {
+    z-index: 100;
+    position: relative;
+    &:not(:first-child):nth-child(n) {
+      display: none;
+    }
+  }
+  &--highRating {
+    @include highRating;
+  }
+  &--lowRating {
+    @include lowRating;
+  }
+}
+
+.thread-count {
+  display: flex;
+  align-items: center;
+  height: 16px;
+  padding: 0 18px;
+  border-radius: 15px;
+  position: absolute;
+  top: 25px;
+  right: 50px;
+  z-index: 150;
+  transform: translateY(-50%);
+  font-size: 11px;
+  text-align: center;
+  color: #fff;
+}

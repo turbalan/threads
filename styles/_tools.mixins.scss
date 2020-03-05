@@ -1,0 +1,29 @@
+@mixin rating($color) {
+  color: $color;
+}
+
+@mixin lowRating {
+  .message-subject {
+    color: $colorLowRating;
+  }
+  .thread-count {
+    background-color: $msgLabelLowRating;
+  }
+}
+
+@mixin highRating {
+  .message-subject {
+    color: $colorHighRating;
+  }
+  .thread-count {
+    background-color: $msgLabelHighRating;
+  }
+}
+
+@mixin messageBoxShadow {
+  box-shadow: 1px 4px 18px -1px rgba(161, 161, 161, 0.8);
+}
+
+@mixin messageBorderRadius {
+  border-radius: 13px;
+}

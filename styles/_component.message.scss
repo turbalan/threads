@@ -1,0 +1,46 @@
+.message {
+  display: flex;
+  padding: 25px;
+  border-radius: 13px;
+  background-color: #ffffff;
+  @include messageBoxShadow;
+
+  &--lowRating {
+    @include lowRating;
+  }
+  &--highRating {
+    @include highRating;
+  }
+}
+
+.message-info {
+  width: 75%;
+}
+.message-meta {
+  width: 140px;
+  margin-left: auto;
+  text-align: right;
+}
+
+.message-subject {
+  font-size: 14px;
+}
+
+.message-description,
+.date {
+  font-size: 12px;
+}
+
+.message-text,
+.team {
+  font-size: 13px;
+}
+
+.date,
+.team {
+  display: block;
+}
+
+.message-text {
+  margin-top: 10px;
+}
