@@ -1,7 +1,9 @@
 import React from "react";
+import Timedate from "./Timedate";
 
 const Message = props => {
   const { subject, description, text, team, date, score } = props;
+  const formatedDate = new Date(date);
   return (
     <div
       className={`message ${
@@ -15,9 +17,7 @@ const Message = props => {
       </div>
       <div className="message-meta">
         <span className="team">{team}</span>
-        <time dateTime={date} className="date">
-          <label htmlFor="thread1">{date}</label>
-        </time>
+        <Timedate date={formatedDate} />
       </div>
     </div>
   );

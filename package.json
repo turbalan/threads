@@ -16,6 +16,9 @@
   "keywords": [],
   "author": "Pavel Kuts",
   "license": "ISC",
+  "browserslist": [
+    "last 2 Chrome versions"
+  ],
   "bugs": {
     "url": "https://github.com/turbalan/threads/issues"
   },

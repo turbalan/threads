@@ -58,7 +58,7 @@ const Thread = props => {
             description={message.question}
             text={message.text}
             team={message.team}
-            date={new Date(message.created_at).getDate().toString()}
+            date={message.created_at}
             key={message.id}
             score={message.score}
           />
