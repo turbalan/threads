@@ -2,6 +2,10 @@
   padding: 25px 0;
   position: relative;
 
+  & + & {
+    margin-top: 16px;
+  }
+
   &--collapsed {
     &::before,
     &::after {
@@ -29,15 +33,15 @@
         display: none;
       }
     }
-  }
-
-  .message {
-    z-index: 100;
-    position: relative;
-    &:not(:first-child):nth-child(n) {
-      display: none;
+    .message {
+      z-index: 100;
+      position: relative;
+      &:not(:first-child):nth-child(n) {
+        display: none;
+      }
     }
   }
+
   &--highRating {
     @include highRating;
   }
@@ -54,7 +58,7 @@
   border-radius: 15px;
   position: absolute;
   top: 25px;
-  right: 50px;
+  right: 25px;
   z-index: 150;
   transform: translateY(-50%);
   font-size: 11px;

@@ -1,21 +1,28 @@
 import React from "react";
 import Message from "./Message";
-import data from "../data/data.json";
 
-const Thread = () => {
-  const threads = data.threads;
-  console.log(threads);
-
+const Thread = props => {
+  const thread = props.thread;
   return (
-    <section
-      className="thread thread--highRating thread--collapsed"
-      data-count="3"
-    >
-      <Message />
-      <Message />
-      <Message />
+    <section className="thread thread--highRating">
+      {thread.map(message => {
+        return (
+          <Message
+            subject={message.subject}
+            description={message.question}
+            text={message.text}
+            team={message.team}
+            date={new Date(message.created_at).getDate().toString()}
+            key={message.id}
+          />
+        );
+      })}
 
-      <div className="thread-count">3 messages</div>
+      {thread.length > 1 ? (
+        <div className="thread-count">{thread.length} messages</div>
+      ) : (
+        ""
+      )}
     </section>
   );
 };
