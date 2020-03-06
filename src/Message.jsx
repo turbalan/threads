@@ -2,7 +2,12 @@ import React from "react";
 
 const Message = props => {
   return (
-    <div className="message">
+    <div
+      className={`message ${
+        props.score > 5 ? `message--highRating` : `message--lowRating`
+      }
+          `}
+    >
       <div className="message-info">
         <h1 className="message-subject">{props.subject}</h1>
         <h2 className="message-description">{props.question}</h2>

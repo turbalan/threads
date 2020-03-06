@@ -1,36 +1,40 @@
 .thread {
   padding: 25px 0;
   position: relative;
+  @include lowRating;
+  @include highRating;
 
   & + & {
     margin-top: 16px;
   }
 
   &--collapsed {
-    &::before,
-    &::after {
-      content: "";
-      display: block;
-      width: 100%;
-      height: calc(100% - (25px * 2));
-      position: absolute;
-      background-color: #fff;
-      @include messageBoxShadow;
-      @include messageBorderRadius;
-    }
-    &::before {
-      left: 10px;
-      top: 35px;
-      z-index: 50;
-    }
-    &::after {
-      top: 45px;
-      left: 20px;
-      z-index: 1;
-    }
-    &[data-count="2"] {
+    &:not([data-count="1"]) {
+      &::before,
       &::after {
-        display: none;
+        content: "";
+        display: block;
+        width: 100%;
+        height: calc(100% - (25px * 2));
+        position: absolute;
+        background-color: #fff;
+        @include messageBoxShadow;
+        @include messageBorderRadius;
+      }
+      &::before {
+        left: 10px;
+        top: 35px;
+        z-index: 50;
+      }
+      &::after {
+        top: 45px;
+        left: 20px;
+        z-index: 1;
+      }
+      &[data-count="2"] {
+        &::after {
+          display: none;
+        }
       }
     }
     .message {
@@ -42,11 +46,10 @@
     }
   }
 
-  &--highRating {
-    @include highRating;
-  }
-  &--lowRating {
-    @include lowRating;
+  &--expanded {
+    .thread-count {
+      display: none;
+    }
   }
 }
 
