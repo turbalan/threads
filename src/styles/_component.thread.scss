@@ -1,8 +1,13 @@
 .thread {
   padding: 25px 0;
   position: relative;
-  @include lowRating;
-  @include highRating;
+
+  &--lowRating {
+    @include lowRating;
+  }
+  &--highRating {
+    @include highRating;
+  }
 
   & + & {
     margin-top: 16px;

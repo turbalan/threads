@@ -1,7 +1,3 @@
-@mixin rating($color) {
-  color: $color;
-}
-
 @mixin lowRating {
   .message-subject {
     color: $colorLowRating;

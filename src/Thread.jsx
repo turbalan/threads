@@ -4,7 +4,20 @@ import Message from "./Message";
 const Thread = props => {
   const [collapsed, updateCollapsed] = useState(1);
   const thread = props.thread;
-  const threadRating = getRanking(thread);
+
+  var scoreArray = function(array, key) {
+    let score = [];
+    if (array.length) {
+      array.map(item => {
+        if (!item[key]) {
+          score.push(0);
+        } else {
+          score.push(item[key]);
+        }
+      });
+    }
+    return score;
+  };
 
   function getRanking(array) {
     var sum,
@@ -15,7 +28,7 @@ const Thread = props => {
       });
     }
     avg = sum / array.length;
-    return avg;
+    return Math.round(avg);
   }
 
   function handleClick() {
@@ -25,6 +38,8 @@ const Thread = props => {
       updateCollapsed(0);
     }
   }
+
+  const threadRating = getRanking(scoreArray(thread, "score"));
 
   return (
     <section
