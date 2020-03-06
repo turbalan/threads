@@ -2,47 +2,59 @@
   padding: 25px 0;
   position: relative;
 
+  &--lowRating {
+    @include lowRating;
+  }
+  &--highRating {
+    @include highRating;
+  }
+
+  & + & {
+    margin-top: 16px;
+  }
+
   &--collapsed {
-    &::before,
-    &::after {
-      content: "";
-      display: block;
-      width: 100%;
-      height: calc(100% - (25px * 2));
-      position: absolute;
-      background-color: #fff;
-      @include messageBoxShadow;
-      @include messageBorderRadius;
-    }
-    &::before {
-      left: 10px;
-      top: 35px;
-      z-index: 50;
-    }
-    &::after {
-      top: 45px;
-      left: 20px;
-      z-index: 1;
-    }
-    &[data-count="2"] {
+    &:not([data-count="1"]) {
+      &::before,
       &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: calc(100% - (25px * 2));
+        position: absolute;
+        background-color: #fff;
+        @include messageBoxShadow;
+        @include messageBorderRadius;
+      }
+      &::before {
+        left: 10px;
+        top: 35px;
+        z-index: 50;
+      }
+      &::after {
+        top: 45px;
+        left: 20px;
+        z-index: 1;
+      }
+      &[data-count="2"] {
+        &::after {
+          display: none;
+        }
+      }
+    }
+    .message {
+      z-index: 100;
+      position: relative;
+      &:not(:first-child):nth-child(n) {
         display: none;
       }
     }
   }
 
-  .message {
-    z-index: 100;
-    position: relative;
-    &:not(:first-child):nth-child(n) {
+  &--expanded {
+    .thread-count {
       display: none;
     }
-  }
-  &--highRating {
-    @include highRating;
-  }
-  &--lowRating {
-    @include lowRating;
   }
 }
 
@@ -54,7 +66,7 @@
   border-radius: 15px;
   position: absolute;
   top: 25px;
-  right: 50px;
+  right: 25px;
   z-index: 150;
   transform: translateY(-50%);
   font-size: 11px;

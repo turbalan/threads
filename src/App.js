@@ -1,13 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Thread from "./Thread";
+import Threads from "./Threads";
 
 const App = () => {
-  return (
-    <article className="threads">
-      <Thread />
-    </article>
-  );
+  return <Threads />;
 };
 
 ReactDOM.render(React.createElement(App), document.getElementById("root"));

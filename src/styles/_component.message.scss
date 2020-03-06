@@ -11,6 +11,10 @@
   &--highRating {
     @include highRating;
   }
+
+  & + & {
+    margin-top: 16px;
+  }
 }
 
 .message-info {
