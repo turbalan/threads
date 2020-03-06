@@ -1,20 +1,17 @@
 import React from "react";
 
-const Message = () => {
+const Message = props => {
   return (
     <div className="message">
       <div className="message-info">
-        <h1 className="message-subject">Freedom of action</h1>
-        <h2 className="message-description">
-          I find that my leader gives me the freedom I need to make decisions
-          about the things that lie within my field of work
-        </h2>
-        <p className="message-text">I am very happy!</p>
+        <h1 className="message-subject">{props.subject}</h1>
+        <h2 className="message-description">{props.question}</h2>
+        <p className="message-text">{props.text}</p>
       </div>
       <div className="message-meta">
-        <span className="team">Demo team here</span>
-        <time dateTime="2018-07-07" className="date">
-          <label htmlFor="thread1">July 7</label>
+        <span className="team">{props.team}</span>
+        <time dateTime={props.date} className="date">
+          <label htmlFor="thread1">{props.date}</label>
         </time>
       </div>
     </div>

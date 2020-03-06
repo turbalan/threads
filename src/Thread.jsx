@@ -1,7 +1,11 @@
 import React from "react";
 import Message from "./Message";
+import data from "../data/data.json";
 
 const Thread = () => {
+  const threads = data.threads;
+  console.log(threads);
+
   return (
     <section
       className="thread thread--highRating thread--collapsed"
@@ -10,7 +14,8 @@ const Thread = () => {
       <Message />
       <Message />
       <Message />
-      <div class="thread-count">3 messages</div>
+
+      <div className="thread-count">3 messages</div>
     </section>
   );
 };
