@@ -1,6 +1,6 @@
 .message {
   display: flex;
-  padding: 25px;
+  padding: $spacing $spacing;
   border-radius: 13px;
   background-color: #ffffff;
   @include messageBoxShadow;

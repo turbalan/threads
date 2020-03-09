@@ -1,5 +1,5 @@
 .thread {
-  padding: 25px 0;
+  padding: $spacing 0;
   position: relative;
 
   &--lowRating {
@@ -20,7 +20,7 @@
         content: "";
         display: block;
         width: 100%;
-        height: calc(100% - (25px * 2));
+        height: calc(100% - (#{$spacing} * 2));
         position: absolute;
         background-color: #fff;
         @include messageBoxShadow;
@@ -65,8 +65,8 @@
   padding: 0 18px;
   border-radius: 15px;
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: $spacing;
+  right: $spacing;
   z-index: 150;
   transform: translateY(-50%);
   font-size: 11px;
