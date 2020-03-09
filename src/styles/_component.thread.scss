@@ -16,7 +16,15 @@ $baseZ: 10;
     margin-top: 16px;
   }
 
-  &--collapsed {
+  &.is-collapsed {
+    &:hover {
+      cursor: pointer;
+      &:not(.thread--singleItem) {
+        .message {
+          border: 1px solid rgba(0, 0, 0, 0.125);
+        }
+      }
+    }
     .message {
       &:first-child {
         z-index: 100;
@@ -43,7 +51,7 @@ $baseZ: 10;
     }
   }
 
-  &--expanded {
+  &.is-expanded {
     .thread-count {
       display: none;
     }

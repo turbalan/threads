@@ -3,7 +3,7 @@ import Message from "./Message";
 
 const Thread = props => {
   const [collapsed, updateCollapsed] = useState(true);
-  const thread = props.thread;
+  const { threadLength, thread } = props;
 
   var scoreArray = function(array, key) {
     let score = [];
@@ -45,11 +45,11 @@ const Thread = props => {
     <section
       className={`
     thread
-    ${collapsed ? `thread--collapsed` : `thread--expanded`}
+    ${collapsed && threadLength > 1 ? `is-collapsed` : `is-expanded`}
     ${threadRating > 5 ? `thread--highRating` : `thread--lowRating`}
+    ${threadLength <= 1 ? `thread--singleItem` : ``}
     `}
       onClick={handleClick}
-      data-count={thread.length}
     >
       {thread.map(message => {
         return (
@@ -61,7 +61,6 @@ const Thread = props => {
             date={message.created_at}
             key={message.id}
             score={message.score}
-            collapsed={collapsed}
           />
         );
       })}

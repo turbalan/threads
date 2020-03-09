@@ -24,7 +24,13 @@ const Threads = () => {
       <article className="threads">
         {threads.map(thread => {
           return thread.map(item => {
-            return <Thread thread={item} key={item[0].thread_id} />;
+            return (
+              <Thread
+                thread={item}
+                key={item[0].thread_id}
+                threadLength={item.length}
+              />
+            );
           });
         })}
       </article>
