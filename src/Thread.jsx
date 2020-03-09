@@ -45,9 +45,15 @@ const Thread = props => {
     <section
       className={`
     thread
-    ${collapsed && threadLength > 1 ? `is-collapsed` : `is-expanded`}
     ${threadRating > 5 ? `thread--highRating` : `thread--lowRating`}
     ${threadLength <= 1 ? `thread--singleItem` : ``}
+    ${
+      collapsed && threadLength > 1
+        ? `is-collapsed`
+        : threadLength <= 1
+        ? ``
+        : `is-expanded`
+    }
     `}
       onClick={handleClick}
     >
