@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Message from "./Message";
 
 const Thread = props => {
-  const [collapsed, updateCollapsed] = useState(1);
+  const [collapsed, updateCollapsed] = useState(true);
   const thread = props.thread;
 
   var scoreArray = function(array, key) {
@@ -32,10 +32,10 @@ const Thread = props => {
   }
 
   function handleClick() {
-    if (collapsed != 1) {
+    if (!collapsed) {
       return;
     } else {
-      updateCollapsed(0);
+      updateCollapsed(false);
     }
   }
 
@@ -45,7 +45,7 @@ const Thread = props => {
     <section
       className={`
     thread
-    ${collapsed != 1 ? `thread--expanded` : `thread--collapsed`}
+    ${collapsed ? `thread--collapsed` : `thread--expanded`}
     ${threadRating > 5 ? `thread--highRating` : `thread--lowRating`}
     `}
       onClick={handleClick}
@@ -61,6 +61,7 @@ const Thread = props => {
             date={message.created_at}
             key={message.id}
             score={message.score}
+            collapsed={collapsed}
           />
         );
       })}

@@ -1,3 +1,6 @@
+$base: 10px;
+$baseZ: 10;
+
 .thread {
   padding: $spacing 0;
   position: relative;
@@ -14,39 +17,28 @@
   }
 
   &--collapsed {
-    &:not([data-count="1"]) {
-      &::before,
-      &::after {
-        content: "";
-        display: block;
-        width: 100%;
-        height: calc(100% - (#{$spacing} * 2));
-        position: absolute;
-        background-color: #fff;
-        @include messageBoxShadow;
-        @include messageBorderRadius;
-      }
-      &::before {
-        left: 10px;
-        top: 35px;
-        z-index: 50;
-      }
-      &::after {
-        top: 45px;
-        left: 20px;
-        z-index: 1;
-      }
-      &[data-count="2"] {
-        &::after {
-          display: none;
-        }
-      }
-    }
     .message {
-      z-index: 100;
-      position: relative;
-      &:not(:first-child):nth-child(n) {
-        display: none;
+      &:first-child {
+        z-index: 100;
+        position: relative;
+      }
+      &:not(:first-child) {
+        width: calc(100% - (2 * #{$spacing}));
+        height: calc(100% - (4 * #{$spacing}));
+        margin: 0;
+        position: absolute;
+        top: $spacing;
+
+        @for $var from 2 to 6 {
+          $zIndex: 99;
+          $baseZ: $baseZ - 10;
+          $base: $base + 10;
+          &:nth-child(#{$var}) {
+            left: $base - 10px;
+            top: $base + 15px;
+            z-index: $zIndex + $baseZ;
+          }
+        }
       }
     }
   }
